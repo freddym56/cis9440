@@ -153,7 +153,6 @@ class OlympicGames:
         self._drop_if_exist('dim_gender')
         self.cursor.execute(dim_gender)
 
-        self._drop_if_exist('fact_olympic_events')
         self.cursor.execute(fact_olympic_events)
 
         self.connection.commit()
