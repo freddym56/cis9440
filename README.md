@@ -1,5 +1,7 @@
 # cis9440
 
+This project builds an ETL pipeline using data from Kaggle and loading it into Oracle Autonomous database.
+
 Install requirements. I suggest using a virtual environment to avoid breaking your default Python install.
 ```
 pip install -r requirements.txt
