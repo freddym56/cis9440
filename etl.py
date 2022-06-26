@@ -7,7 +7,7 @@ class OlympicGames:
 
     def __init__(self):
 
-        cx_Oracle.init_oracle_client(lib_dir=os.environ.get("HOME")+"/Downloads/instantclient_19_8")
+        cx_Oracle.init_oracle_client(lib_dir=os.environ.get('oracle_client'))
         self.connection = cx_Oracle.connect(user=os.environ.get('oracle_user'), password=os.environ.get('oracle_password'), dsn="cis9440_high")
         self.cursor = self.connection.cursor()
 
