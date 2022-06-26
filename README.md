@@ -13,6 +13,7 @@ https://www.oracle.com/database/technologies/appdev/python/quickstartpython.html
 Need to add the following environment variables via your system shell.
 
 ```
+export oracle_client=path_to_your_oracle_client
 export oracle_user=your_oracle_autonomous_db_username
 export oracle_password=your_oracle_autonomous_db_password
 ```
