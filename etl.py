@@ -269,6 +269,5 @@ if __name__ == '__main__':
     etl.create_tables()
     etl.extract()
     etl.transform_and_load()
-    etl._load_fact_table()
     etl.cleanup()
     
