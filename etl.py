@@ -197,9 +197,9 @@ class OlympicGames:
                 for row in reader:
                     for column, value in row.items():
                         if column in unique_values:
-                            unique_values[column].add(value)
+                            unique_values[column].add(value.upper() if column == 'Athlete' else value)
                         else:
-                            unique_values[column] = {value}
+                            unique_values[column] = {value.upper() if column == 'Athlete' else value}
         return unique_values
 
 
@@ -257,7 +257,7 @@ class OlympicGames:
                         'country_id': countries.get(row['Country']),
                         'year_id': years[int(row['Year'])],
                         'event_id': events[row['Event']],
-                        'athlete_id': athletes[row['Athlete']],
+                        'athlete_id': athletes[row['Athlete'].upper()],
                         'gender_id': genders[row['Gender']]
                     }
                     data_rows.append(data)
@@ -265,9 +265,11 @@ class OlympicGames:
         self.connection.commit()
 
 if __name__ == '__main__':
-    etl = OlympicGames()
-    etl.create_tables()
-    etl.extract()
-    etl.transform_and_load()
-    etl.cleanup()
+    try:
+        etl = OlympicGames()
+        etl.create_tables()
+        etl.extract()
+        etl.transform_and_load()
+    finally:
+        etl.cleanup()
     
